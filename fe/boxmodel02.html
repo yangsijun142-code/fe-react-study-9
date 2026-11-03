@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<style>                              
+
+ /* 기본 베이스 설정 */
+    *{
+        /* 전체 선택자 */
+        margin: 0; /* 내부 여백 0 */
+        padding: 0;/* 외부 여백 0*/
+        box-sizing: border-box;
+            /* 박스모델 사이즈 지정시, border 까지 포함해서 지정 */
+    }
+
+
+        /* 디스플레이 속성*/
+            none       : 표시가 안보이는것
+            black      : 한줄 다차지 사이즈 적용가능(width,height) 기본적으로 갈아배치는 안됨
+            inline     : 컨텐츠 크기만 차기, 사이즈 적용이 불가능, 같은줄 옆에 나란히 배치, 여백 적용(좌우만..)
+            inline-block  : 자체적으로 block 처럼 작동(사이즈,여백)
+                                외부적으로는 inlin 옆에 가능하다
+
+    .box{
+ width: 200px;
+            height: 100px;
+            border: 1px;
+
+            margin: 10 px;
+            padding: 10px;
+        }
+
+
+    .box1{
+            /* div 태그 기본 성격 black*/
+            width: 200px;
+            height: 100px;
+            border: 1px; solid blank;
+
+            margin: 10 px;
+            padding: 10px;
+    }
+
+    .box2
+{
+  /* div 태그 기본 성격 black*/
+            width: 200px;
+            height: 100px;
+            border: 1px;
+
+            margin: 10 px;
+            padding: 10px;
+            
+            display:black
+    
+        }
+
+
+
+            .box3
+
+{
+            /* div 태그 기본 성격 black*/
+            width: 200px;
+            height: 100px;
+            border: 1px;
+
+            margin: 10 px;
+            padding: 10px;
+    
+            display: black
+    
+    }
+
+
+    .span1 {
+            display: inline;
+
+            width: 200px;
+            height: 100px;
+        }
+
+
+    .perent {
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+
+
+        }
+
+
+        .child{
+
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+
+    
+    display: none;
+
+        }
+
+
+        .perent:hover .child {
+            display: block;
+        }
+        
+
+        .perent:hover .perent-span{
+            color:brown
+            text-decoration: underline
+        }
+</style>
+
+
+
+
+</head>
+<body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+
+    <span class="span1">span1</span>
+    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id, sit at delectus est expedita natus reiciendis, ipsa architecto tenetur sunt totam exercitationem. Soluta, perspiciatis officia. Sint veniam fugit consequuntur quidem.</span>
+    
+
+    <div class="parent">
+        <span class="parent-span">부모</span>
+        <br><br>
+        <div class="child">
+            자식
+        </div>
+
+    </div>
+</body>
+</html>
