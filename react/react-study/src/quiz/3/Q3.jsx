@@ -1,8 +1,10 @@
+import './Q3.css'
+
 function Textitem(props) {
     return (
         <div>
-            <p>제목 : {props.title}</p>
-            <p>내용 : {props.content}</p>
+            <p className="title">제목 : {props.title}</p>
+            <p className="textitem">내용 : {props.content}</p>
         </div>
     );
 }
@@ -14,6 +16,7 @@ function Q3() {
         {title: '둘', content: '내용둘'},
         {title: '셋', content: '내용셋'},
         {title: '넷', content: '내용넷'},
+
         {title: '다섯', content: '내용다섯'},
     ];
 

@@ -9,12 +9,13 @@ import viteLogo from './assets/vite.svg'
 // import State03 from './components/State03'
 // import Props01 from './components/App.jsx'
 import { useState } from "react";
-import Q3 from "./quiz/Q3";
+import Q3 from "./quiz/3/Q3";
+import Newsblog from "./newsblog/Newsblog";
 
 function App() {
     return(
         <div>
-            <Q3/>
+            <Newsblog/>
         </div>
     );
 }
