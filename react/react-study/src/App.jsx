@@ -8,22 +8,17 @@ import viteLogo from './assets/vite.svg'
 // import State02 from './components/State02'
 // import State03 from './components/State03'
 // import Props01 from './components/App.jsx'
-
 import { useState } from "react";
+import Q3 from "./quiz/Q3";
 
 function App() {
-    let arr = ['하나','둘','셋'];
-    let [num, setArr] = useState(0);
-    return (
+    return(
         <div>
-            <p>{arr[num]}</p>
-            <button onClick={() => {setArr((num+1) % arr.length)}}>
-                변경버튼
-            </button>
+            <Q3/>
         </div>
     );
 }
-//ddddss1
+
 
 
 
