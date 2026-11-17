@@ -1,59 +1,68 @@
-import "./NewsBlog.css"
-import { useState } from "react"
-import Modal from "./Modal"
+import './NewsBlog.css'
+import { useState } from 'react';
+import Modal from './Modal';
 
-
-function NewsBlog(){
-
-    let[news1, SetNews1] = useState("어제의 뉴스")
-    let[news2, SetNews2] = useState("오늘의 뉴스")
-    let[news3, SetNews3] = useState("내일의 뉴스")
-
-    let [news, setnwes] = useState (["어제의 뉴스", "오늘의 뉴스","내일의 뉴스"])
+export default function NewsBlog(){
     
-    let[likecount, setlikecount] = useState(0);
-    
-    let [modalFlag, setModalFlag]= useState(false);
-    
-    
+    // 제목  잘 바뀌지 않는 내용
+    // 하드코딩(텍스트가 직접 작성되어있는) vs 일반변수 vs State변수'
+    let title = 'Blog Header';
 
-    return (
-        <div>
-            <div className="black-nav">
-                <h3>blog header</h3>
-                <div>React Study</div>
-            </div>
+    let [news1, setNews1] = useState('어제의 뉴스');
+    let [news2, setNews2] = useState('오늘의 뉴스');
+    let [news3, setNews3] = useState('내일의 뉴스');
 
-            <div className="post-list">
-                <h4>제목</h4>
-                <p>내용</p>
-            </div>
+    let [news, setNews] = useState(['어제의 뉴스','오늘의 뉴스','내일의 뉴스']);
 
-            <div className="post-list">
-                <h4>제목</h4>
-                <p>내용</p>
-            </div>
+    let [likeCount, setLikeCount] = useState(0);
 
-            <div className="post-list">
-                <h4>제목</h4>
-                <p>내용</p>
-            </div>
+    let [modalFlag, setModalFlag] = useState(false);
 
-            {
-            modalFlag && <Modal1/>
-            }
+    return(
+    <div>
+        <div className='black-nav'>
+            <h3>{title}</h3>
+            <div style={{color:'orange', fontSize:'20px'}}>React Study</div>
         </div>
-        
-    );
-}
 
-export default NewsBlog;
+        <div className='post-list'>
+            <h4 onClick={()=>{
+                // ModalFlag 값 변경
+                // setModalFlag(true);
 
+                // if(modalFlag)
+                //     setModalFlag(false);
+                // else
+                //     setModalFlag(true);
 
+                setModalFlag( !modalFlag );
+                // 재렌더링
 
+            }}>{news[0]} <span onClick={(event)=>{
+                // event.preventDefault();  발생하는 이벤트의 기본 수행을 막는다
+                event.stopPropagation(); // 이벤트 발생을 추가로 전파/전달 하는것을 멈춤
+                setLikeCount(likeCount+1); // 재렌더링
+                }}>♥ </span>{likeCount}</h4>
+            <p>내용</p>
+        </div>
 
+        <div className='post-list'>
+            <h4>{news[1]}</h4>
+            <p>내용</p>
+        </div>
 
+        <div className='post-list'>
+            <h4>{news[2]}</h4>
+            <p>내용</p>
+        </div>
 
+        {/* {
+            modalFlag == true ? <Modal/> : null
+        } */}
 
+        {
+            modalFlag && <Modal/>
+        }
 
-
+    </div>
+)}
