@@ -10,7 +10,7 @@
 
     return (
         <div>
-          <Quiz01/>
+          <Newsblog/>
         </div>
     );
 }
