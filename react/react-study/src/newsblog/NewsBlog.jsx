@@ -44,7 +44,7 @@ function NewsBlog() {
             {
                 news.map((item, index) => {
                     return (
-                        <div className="post-list">
+                        <div className="post-list" key={index}>
                             <h4 onClick={() => {
                                 
                                 setSelectedTitle(item); //제목전달
@@ -58,6 +58,19 @@ function NewsBlog() {
                                 setLikeCountArr(temp);  //재렌더링 조건 충족
                             }}>♥</span> {likeCountArr[index]}</h4>
                             <p>내용</p>
+                        
+                            <button onClick={()=>{
+                            let temp = news.filter((item, i)=> i !== index )
+                            setNews(temp);
+
+                            let templike = likeCountArr.filter((item, i)=> i !== index)
+                            setLikeCountArr(templike);
+                        }}>
+                        
+                            삭제
+                            </button>
+                        
+                        
                         </div>
                     )
                 })
@@ -151,13 +164,42 @@ function NewsBlog() {
                         input_nt value = '';
                     */
 
-                    // input에서 입력되어 저장된 state값 -> news배열에 추가등록 -> 재렌더링+화면에표시
+                    //// 사전 필터링 패턴
+
+                    // 문자 앞위에 있는 공백(띄워쓰기) 제거
+                    // 띄어쓰기만 있을때 등록을 방지
+                    // trim () :  문자열 앞위에 있는 공백제거
+                    
+                    
+                    // 공백제거
+                    inputText = inputText.trim();
+                    
+                    if(inputText == ''){
+                        alert('값을 입력 하세요'); // 브라우저한테 초기화 
+                        setInputText(''); // 입력칸 초기화
+                        return;
+                    }
+                    
+                    
+                    
+                        // input에서 입력되어 저장된 state값 -> news배열에 추가등록 -> 재렌더링+화면에표시
+                    if(inputText===''){
+                        console.log('텍스트 입력해라');
+                        return;
+                    }
+                    
                     let temp = [...news];
                     temp.push(inputText);
                     setNews(temp);
 
+                    setLikeCountArr([...likeCountArr, 0]);
+
                     setInputText(''); // 입력값 저장하는 inputText state변수의 값을 초기화 (clean)
 
+                
+                
+                
+                
                 }}>뉴스발행</button>
             </div>
 

@@ -9,15 +9,15 @@ import viteLogo from './assets/vite.svg'
 // import State03 from './components/State03'
 // import Props01 from './components/App.jsx'
 import { useState } from "react";
+import Foodfmaket from "./foodmarket/Foodmarket";
 //import Quiz05 from "./newsblog";
-import NewsBlog from "./newsblog/NewsBlog";
 //import Q3 from "./quiz/3/Q3";
 
 
 function App() {
     return (
         <div>
-            <NewsBlog/>
+            <Foodfmaket/>
         </div>
     );
 }
