@@ -17,9 +17,10 @@ import food3 from './img/food3.jpg';
 import foodsData from "./data/foodsData";
 import FoodCard from "./components/FoodCard";
 import { useState } from "react";
-import {Routes, Route } from 'react-router';
+import {Routes, Route, useNavigate, Link } from 'react-router';
 import CustomerServise from "./pages/CustomerServise";
 import Home from "./pages/Home";
+import Detail from "./pages/Detail";
 
 function FoodMarket() {
 
@@ -37,27 +38,38 @@ function FoodMarket() {
         navigate(주소)
     */
 
+    let navigate = useNavigate();
+
     return (
 
         <div>
 
             <Navbar bg="light" data-bs-theme="light">
                 <Container>
-                    <Navbar.Brand href="#home">FoodMarket</Navbar.Brand>
+                    {/* <Navbar.Brand onClick={()=>{location.href='/';}}>FoodMarket</Navbar.Brand> */}
+                    <Navbar.Brand onClick={()=>{navigate('/')}}>FoodMarket</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        {/* <Nav.Link href="/Home"> <Link to = '/'>Home</Link> </Nav.Link> */}
+                        <Nav.Link onClick={()=>{navigate('/')}}>Home</Nav.Link>
+                        <Nav.Link onClick={()=>{navigate('/detail')}}>FoodDetail(상세)</Nav.Link>
+                        <Nav.Link onClick={()=>{navigate('/info')}}>정보석</Nav.Link>
+                        <Nav.Link onClick={()=>{navigate('/help')}}>고객센터</Nav.Link>
+
+                        {/* <Nav.Link><Link to='/info'>흑우센터</Link></Nav.Link>
+                        <Nav.Link onClick={()=>{navigate('help')}}>흑우센터</Nav.Link> */}
                     </Nav>
                 </Container>
             </Navbar>
 
+
             <Routes>
                 <Route path="/" element={<Home foods={foods}/>}/>
                 <Route path="/help" element={<CustomerServise/>}/>
+                <Route path="/detail/:id" element={<Detail foods={foods}/>}/>
                 <Route path="/detail" element={<div><h1>김보석 디테일</h1></div>}/>
                 <Route path="/info" element={<div><h1>김보석 정보</h1></div>}/>
                 <Route path="/test" element={<div><h1>김보석 바보</h1></div>}/>
+                <Route path="/*" element={<div><h1>404 에러!!! 너도 김보석처럼 바보</h1></div>}/>
             </Routes>
 
 
