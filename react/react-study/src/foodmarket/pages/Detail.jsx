@@ -84,7 +84,7 @@ export default function Detail({foods}){
         //clearInterval
 
         const interv = setInterval(() => {
-           console.log('interval') 
+        console.log('interval') 
         }, 1000);
 
         //clean up function
@@ -154,6 +154,63 @@ export default function Detail({foods}){
         </div>
     )}
 
+    
+    //------------------------------------------------
+    
+    /*스타일 적용
+    
+    
+    가격에 따라서 스타일 적용
+    가격표시
+            1만원 이상 -> 빨간색 으로 표시
+            1만원 이하 -> 파란색 금액 표시
+
+            1) js 객체
+
+            요소에 style 속성에는 js 객체로 설정 가능
+            
+            color :foods.price >= 1000? "red": "blue"
+            
+           // 2)
+    
+        <p style={ priceTextStyle }>{food.price}</p>
+    
+    
+        3) css 클래래스 연계 활용
+    
+    
+        4) css class + useState 조합 -> 효과 발생
+        
+        
+        
+        
+        
+        
+        5) js 객체로 내부에서 스타일 정의 사용
+        */
+    
+    
+    //-------------------------------------
+    
+        const priceTextStyle = {
+        color :foods.price >= 1000? "red": "blue"
+        
+    }
+    
+    
+    
+    const prisTextStylefunc = (price)=>{
+        if(price >=10000)
+            return {color:"red"};
+        else
+            return{color:"blue"};
+    
+    }        
+
+    
+    
+    
+    
     return (
         <div>
             <Container className={"start " + viewStatus}>
@@ -164,8 +221,24 @@ export default function Detail({foods}){
                     <Col md={6}>
                         <h4>{food.title}</h4>
                         <p>{food.content}</p>
-                        <p>{food.price}</p>
+                        <p style={ {color :foods.price >= 1000? "red": "blue"}}>{food.price}</p>
 
+                        
+                        <p style={ priceTextStyle }>{food.price}</p>
+                        
+                        <p className={ food.price >=10000 ? "price-red" : 'price-blue' }>{food.price}</p>
+                        <p className={ 'text-strong' + (food.price >=10000 ? "price-red" : 'price-blue') } > </p>
+                        <p className={ 'text-strong' + priceTextClassname}>{food.price}</p>
+                        <p className= {[ 'text-strong' , priceTextClassname].joun(" ") } >{food.price}</p>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         <div>
                             <Button variant="dark" onClick={()=>{
                                 if(orderCount>0){
@@ -217,3 +290,8 @@ export default function Detail({foods}){
 
 
 }
+
+
+
+
+
