@@ -9,7 +9,9 @@ import viteLogo from './assets/vite.svg'
 // import State03 from './components/State03'
 // import Props01 from './components/App.jsx'
 import { useState } from "react";
-import Foodfmaket from "./foodmarket/Foodmarket";
+import FoodMarket from "./foodmarket/Foodmarket";
+//import Quiz6 from "../../japs/quiz/Q6/Quiz6";
+//import Quiz7 from "../Quiz07/Quiz07";
 //import Quiz05 from "./newsblog";
 //import Q3 from "./quiz/3/Q3";
 
@@ -17,7 +19,7 @@ import Foodfmaket from "./foodmarket/Foodmarket";
 function App() {
     return (
         <div>
-            <Foodfmaket/>
+            <FoodMarket/>
         </div>
     );
 }
